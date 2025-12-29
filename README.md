@@ -132,13 +132,13 @@ The installation process for OSSEC is similar to Wazuh:
 sudo cp decoders/*.xml /var/ossec/etc/decoders/
 
 # Install rules
-sudo cp rules/*.xml /var/ossec/rules/
+sudo cp rules/*.xml /var/ossec/etc/rules/
 
 # Set permissions
 sudo chown ossec:ossec /var/ossec/etc/decoders/*.xml
-sudo chown ossec:ossec /var/ossec/rules/*.xml
+sudo chown ossec:ossec /var/ossec/etc/rules/*.xml
 sudo chmod 640 /var/ossec/etc/decoders/*.xml
-sudo chmod 640 /var/ossec/rules/*.xml
+sudo chmod 640 /var/ossec/etc/rules/*.xml
 
 # Restart OSSEC
 sudo /var/ossec/bin/ossec-control restart
