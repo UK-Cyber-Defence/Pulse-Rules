@@ -11,9 +11,9 @@ This repository contains a collection of open-source detection rules and decoder
 ```
 Pulse-Rules/
 ├── decoders/          # Custom log decoders
-│   └── mongobleed.xml # MongoDB log decoder for CVE-2025-14847 detection
+│  
 └── rules/             # Detection rules
-    └── 701001-mongobleed.xml # MongoBleed exploitation detection rules
+
 ```
 
 ## Available Rules and Decoders
