@@ -1,6 +1,6 @@
 # Pulse-Rules
 
-Opensource detection rules and decoders for use in OSSEC, Wazuh and Pulse SIEM.
+Open-source detection rules and decoders for use in OSSEC, Wazuh and Pulse SIEM.
 
 ## Overview
 
