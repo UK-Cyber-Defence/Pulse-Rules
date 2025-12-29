@@ -1,0 +1,36 @@
+<group name="mongodb,mongobleed,cve-2025-14847,">
+  <!-- Building block: Connection accepted -->
+  <rule id="100500" level="0">
+    <decoded_as>mongodb-json-conn-accepted</decoded_as>
+    <description>MongoDB: Connection accepted (id 22943)</description>
+    <group>mongodb_connection,</group>
+    <options>no_full_log</options>
+  </rule>
+  <!-- Building block: Client metadata -->
+  <rule id="100501" level="0">
+    <decoded_as>mongodb-json-client-metadata</decoded_as>
+    <description>MongoDB: Client metadata (id 51800)</description>
+    <group>mongodb_metadata,</group>
+    <options>no_full_log</options>
+  </rule>
+  <!-- High-confidence: burst behaviour (default aligns with the detector's burst concept) -->
+  <rule id="100510" level="12" frequency="400" timeframe="60">
+    <if_matched_sid>100500</if_matched_sid>
+    <same_srcip />
+    <description>Potential MongoBleed exploitation (CVE-2025-14847): extreme connection burst from $(srcip) (>=400 conn/min, missing-metadata behaviour likely)</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>attack_attempt,web,</group>
+  </rule>
+  <!-- Medium-high confidence: sustained high rate (useful if attackers throttle below the burst threshold) -->
+  <rule id="100511" level="10" frequency="600" timeframe="300">
+    <if_matched_sid>100500</if_matched_sid>
+    <same_srcip />
+    <description>Potential MongoBleed exploitation (CVE-2025-14847): sustained abnormal connection volume from $(srcip) (>=600 conn/5min)</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>attack_attempt,web,</group>
+  </rule>
+</group>
