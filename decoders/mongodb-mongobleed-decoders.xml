@@ -1,0 +1,17 @@
+<decoder name="mongodb-json-conn-accepted">
+  <prematch>"id":22943</prematch>
+  <regex>"msg":"Connection accepted".*"remote":"([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+):([0-9]+)"</regex>
+  <order>srcip,srcport</order>
+</decoder>
+
+<decoder name="mongodb-json-client-metadata">
+  <prematch>"id":51800</prematch>
+  <regex>"msg":"Client metadata".*"remote":"([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+):([0-9]+)"</regex>
+  <order>srcip,srcport</order>
+</decoder>
+
+<decoder name="mongodb-json-conn-closed">
+  <prematch>"id":22944</prematch>
+  <regex>"msg":"Connection ended".*"remote":"([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+):([0-9]+)"</regex>
+  <order>srcip,srcport</order>
+</decoder>
